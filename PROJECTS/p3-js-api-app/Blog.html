@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amihan | Blog</title>
+
+  <script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="MainStyles.css">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- LeafletJS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Main Script and Theme Script -->
+  <script src="Theme.js" defer></script>
+  <script src="MainScript.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.png">
+</head>
+
+<body data-bs-theme="light">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+      <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand d-flex align-items-center fw-bold text-primary fs-4" href="index.html">
+          <img src="assets/windsvg.svg" alt="Amihan Logo" width="28" height="28" class="me-2">
+          Amihan
+        </a>
+
+        <!-- Hamburger Toggle for small screens -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav align-items-lg-center gap-lg-3">
+            
+            <!-- Regular nav links -->
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold text-primary" href="index.html">Home</a>
+            </li>
+
+            <!-- About -->
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="About.html">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="Blog.html">Blog</a>
+            </li>
+
+            <!--  Dropdown  -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="learnDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn
+              </a>
+              <ul class="dropdown-menu border-0 shadow-sm mt-2" aria-labelledby="learnDropdown">
+                <li><a class="dropdown-item" href="LearnAQI.html">What is AQI?</a></li>
+                <li><a class="dropdown-item" href="LearnHealth.html">Health Impacts</a></li>
+                <li><a class="dropdown-item" href="LearnSensors.html">How Sensors Work</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-primary fw-semibold" href="./assets/AQLI-PDF.pdf" target="_blank">AQLI 2025 Report</a></li>
+              </ul>
+            </li>
+
+            <!--  Theme toggle icon (right-aligned on desktop) -->
+            <li class="nav-item ms-lg-3">
+              <div class="form-check form-switch mx-4">
+                <input class="form-check-input p-2" type="checkbox" role="switch" id="themeToggle" checked />
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container my-5">
+    <h1 class="fw-bold text-center mb-5">📝 Amihan Blog</h1>
+
+    <div class="card shadow-sm border-0 mx-auto blog-card">
+      <img src="./assets/BlogWEBP.webp" class="card-img-top card-images" alt="Clean Air Awareness">
+      <div class="card-body p-5">
+        <h2 class="fw-bold  text-center mb-1">When the Air Talks</h2>
+        <p class="text-muted  text-center mb-4">
+          <small>By <strong>Russell Ferrero</strong> • October 19, 2025</small>
+        </p>
+
+        <p class="fs-5 text-justify">
+          Building this project has been the most learning, painful, and humbling experience
+          that I've ever done. It encompasses one of my strong takes in life, raising awareness
+          about <strong>Climate Change</strong> and <strong>World Pollution</strong>. From making 
+          the backbone of my main HTML page, setting up the API logic, to doing all that crazy Bootstrap
+          work across multiple pages, the effort I poured into this project reminded me that <em>growth only
+          happens when we push through discomfort.</em>
+        </p>
+        <br>
+        <br>
+        <h4 class="fw-bold text-center mb-1">The Challenge of Bringing Data to Life</h3>
+        <p class="fs-5 text-justify">
+          One of the toughest but most exciting parts of this project was connecting my app to
+          real-world data. I used the <strong>IQAir</strong> API to track the Air Quality Index (AQI)
+          for different locations, and integrated <strong>Google Gemini</strong> to generate AI-based
+          explanations for what thouse numbers actually mean. This combination of APIs really open my
+          eyes to the power of technology in understanding environmental issues. It wasn't just about
+          displaying numbers, it was about telling a story behind them. I wanted users to not only see 
+          the air quality but also <strong>understand</strong> what it means for their health and their
+          community.
+        </p>
+        <br>
+        <br>
+        <h4 class="fw-bold text-center mb-1">The Struggles Behind the Scenes</h4>
+        <p class="fs-5 text-justify">
+          There were so many moments of frustration. APIs failing to fetch, JSON responses not making sense,
+          dark mode making my web app crash, all that stuff. It honestly tested my patience more times than
+          I can count, but each bug and error message became a learning opportunity. I slowly got better at 
+          reading documentation (<em>This is so important, in my opinion.</em>), debugging JavaScript logic, 
+          and managing asynchronous code using <strong>fetch()</strong> and <strong>async/await</strong>.
+        </p>
+        <br>
+        <br>
+        <h4 class="fw-bold text-center mb-1">Lessons Beyond Code</h4>
+        <p class="fs-5 text-justify">
+          This project wasn't just about building a web app, it was about building resilience. It taught me 
+          that coding is not about perfection, it's about <em>persistence</em>. I learned to break problems 
+          down, to take breaks when I hit a wall, and to celebrate small wins (<em>like when my first successful
+          API response showed up on screen!</em>)
+        </p>
+        <p class="fs-5 text-justify">
+          More importantly, I learn that passion makes the process worthwhile. Even when the work was exhausting,
+          knowing that my app could help someone understand the air they breathe kept me going. I want all of humanity
+          to be transformed as people who believe that transparancy and awareness aren't just ideas, they're the strongest
+          weapons we have in the fight against pollution and climate change.
+        </p>
+        <p class="fs-5 text-justify">
+          This might not be the most advanced or polished app out there, but it's something I'm genuinely proud of. It
+          represents a mix of <strong>learning, frustration, curiosity, and purpose</strong>: and to me, that's what real
+          growth looks like.
+        </p>
+
+        <hr class="my-4" />
+
+        <p class="text-muted fst-italic mb-0">
+          “The earth is what we all have in common.” — Wendell Berry
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-3 border-top">
+    <p class="small text-muted">Powered by <a href="https://www.iqair.com/" target="_blank">IQAir</a> • <a href="https://ai.google.dev/gemini-api/docs" target="_blank">Google Gemini</a></p>
+    <p class="small text-muted mb-0">© 2025 Amihan</p>
+  </footer>
+</body>
+</html>
+
