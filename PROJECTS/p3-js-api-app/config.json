@@ -1,0 +1,10 @@
+{
+  "IQAIR_API_KEY" : "af849237-3767-4797-90ae-9258f7ba3e56",
+  "IQAIR_BASE_URL" : "https://api.airvisual.com/v2",
+
+  "GEMINI_API_KEY" : "AIzaSyBbS1l4T7hHe2yH0nUncH7qJjc-MOFQQFM",
+  "GEMINI_BASE_URL" : "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+
+  "IPINFO_BASE_URL" : "https://ipinfo.io/json",
+  "IPINFO_TOKEN" : "dc844d3e3030b4"
+}
