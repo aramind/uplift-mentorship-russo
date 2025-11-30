@@ -1,0 +1,20 @@
+Passport Management System (CHANGES):
+
+1.  Added a wrapper function for validating inputs (if it's a number or not).
+    I guess i can't avoid using a double negative (!Number.isNaN) on validation
+    but I put it inside of a function to make it more cleaner on my reused functions.
+
+2.  Added a months object to avoid using magic numbers as much as possible.
+
+3.  Fixed my indentions to two spaces on scopes.
+
+4.  Changed all my do...while loops to while loops, and creating controlled infinite 
+    loops (using loop control statements eg. continue, break, etc.) to make my logic
+    more readable. I guess while loops (in this case) are more readable than the other
+    one. 
+
+5.  Fixed the whole logic of validating the date of birth. I first let the user input
+    the year so I can take its value and add it in my leap year logic. My code will know 
+    if the month inputted is 30 or 31 days, and if it's February, it computes if that 
+    specific February is in a leap year or not, and it then queries the right range that
+    the user will need to input (either 1-28 or 1-29). 

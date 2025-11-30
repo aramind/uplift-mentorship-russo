@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amihan | About</title>
+
+  <script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="MainStyles.css">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- LeafletJS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Main Script and Theme Script -->
+  <script src="Theme.js" defer></script>
+  <script src="MainScript.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.png">
+</head>
+
+<body data-bs-theme="light">
+  <div class="main-container">
+
+    <!-- NAVBAR -->
+    <header>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+      <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand d-flex align-items-center fw-bold text-primary fs-4" href="index.html">
+          <img src="assets/windsvg.svg" alt="Amihan Logo" width="28" height="28" class="me-2">
+          Amihan
+        </a>
+
+        <!-- Hamburger Toggle for small screens -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav align-items-lg-center gap-lg-3">
+            
+            <!-- Regular nav links -->
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold text-primary" href="index.html">Home</a>
+            </li>
+
+            <!-- About -->
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="About.html">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="Blog.html">Blog</a>
+            </li>
+
+            <!--  Dropdown  -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="learnDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn
+              </a>
+              <ul class="dropdown-menu border-0 shadow-sm mt-2" aria-labelledby="learnDropdown">
+                <li><a class="dropdown-item" href="LearnAQI.html">What is AQI?</a></li>
+                <li><a class="dropdown-item" href="LearnHealth.html">Health Impacts</a></li>
+                <li><a class="dropdown-item" href="LearnSensors.html">How Sensors Work</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-primary fw-semibold" href="./assets/AQLI-PDF.pdf" target="_blank">AQLI 2025 Report</a></li>
+              </ul>
+            </li>
+
+            <!--  Theme toggle icon (right-aligned on desktop) -->
+            <li class="nav-item ms-lg-3">
+              <div class="form-check form-switch mx-4">
+                <input class="form-check-input p-2" type="checkbox" role="switch" id="themeToggle" checked />
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container my-5">
+      <h1 class="fw-bold mb-4 text-center">About Amihan</h1>
+
+      <!-- Placeholder section -->
+      <section id="about-content" class="py-5 text-center">
+  <div class="container">
+    <div class="card border-0 shadow-sm mx-auto" style="max-width: 800px;">
+      <div class="card-body p-5">
+        <h2 class="fw-bold mb-4">All About Air</h2>
+
+        <p class="fs-5 text-secondary justified indent">
+          Hi, I’m <strong>Russell Ferrero</strong>, and I created <span class="text-primary fw-semibold">Amihan</span>, an AI-powered web app designed to help people understand the air they breathe.
+          This project was born out of my growing concern about <strong>air pollution</strong> and how it silently affects our health, our environment, and even our future.
+        </p>
+
+        <p class="text-secondary justified">
+          We often take clean air for granted. But in many parts of the world, the air we breathe contains harmful pollutants that can cause respiratory illnesses,
+          trigger allergies, and worsen existing health conditions. I wanted to build something that could make people <strong>more aware</strong>, something that
+          turns raw data into meaningful insights, so we can all take small steps toward a healthier lifestyle and a cleaner environment.
+        </p>
+
+        <p class="text-secondary justified">
+          <span class="fw-semibold text-primary">Amihan</span> empowers that awareness. It’s powered by real-time air quality data from <strong>IQAir</strong>, one of the world’s
+          most trusted air quality platforms, and by <strong>Google Gemini AI</strong>, which interprets those numbers in a way that’s easy to understand, explaining what the data means,
+          how it might affect you, and what actions you can take to stay safe.
+        </p>
+
+        <p class="text-secondary justified">
+          Beyond numbers and maps, this project represents my belief that <strong>technology should be used for good</strong>, not just to make life easier,
+          but to make life better. By combining reliable environmental data with artificial intelligence, <span class="text-primary">Amihan</span> encourages people
+          to be more mindful of the environment and the invisible factors that impact our well-being every day.
+        </p>
+
+        <p class="text-secondary justified">
+          Climate change isn’t something that happens far away, it’s happening right here, right now. And I believe that real change starts with <em>awareness</em>.
+          Even small acts, choosing cleaner transport, supporting green initiatives, reducing waste, all add up. This web app is my way of contributing to that movement:
+          by spreading knowledge, awareness, and a bit of inspiration.
+        </p>
+
+        <hr class="my-4">
+
+        <p class="text-muted fst-italic">
+          <strong>Amihan</strong>, Powered by <strong>IQAir</strong> and <strong>Google Gemini</strong>.  
+          Built with passion, code, and a deep respect for the planet we all share.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+
+    <!-- FOOTER -->
+  <footer class="text-center py-3 border-top">
+    <p class="small text-muted">Powered by <a href="https://www.iqair.com/" target="_blank">IQAir</a> • <a href="https://ai.google.dev/gemini-api/docs" target="_blank">Google Gemini</a></p>
+    <p class="small text-muted mb-0">© 2025 Amihan</p>
+  </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amihan | Air Quality Checker</title>
+
+  <script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="MainStyles.css">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- LeafletJS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Main Script and Theme Script -->
+  <script src="Theme.js" defer></script>
+  <script src="MainScript.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.png">
+</head>
+
+<body data-bs-theme="light">
+  <div class="main-container">
+
+  <!-- NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+        <div class="container">
+          <!-- Brand/Logo -->
+          <a class="navbar-brand d-flex align-items-center fw-bold text-primary fs-4" href="index.html">
+            <img src="assets/windsvg.svg" alt="Amihan Logo" width="28" height="28" class="me-2">
+            Amihan
+          </a>
+
+          <!-- Hamburger Toggle for small screens -->
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+            <ul class="navbar-nav align-items-lg-center gap-lg-3">
+              
+              <!-- Regular nav links -->
+              <li class="nav-item">
+                <a class="nav-link active fw-semibold text-primary" href="index.html">Home</a>
+              </li>
+
+              <!-- About -->
+              <li class="nav-item">
+                <a class="nav-link fw-semibold text-dark" href="About.html">About</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link fw-semibold text-dark" href="Blog.html">Blog</a>
+              </li>
+
+              <!--  Dropdown  -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="learnDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Learn
+                </a>
+                <ul class="dropdown-menu border-0 shadow-sm mt-2" aria-labelledby="learnDropdown">
+                  <li><a class="dropdown-item" href="LearnAQI.html">What is AQI?</a></li>
+                  <li><a class="dropdown-item" href="LearnHealth.html">Health Impacts</a></li>
+                  <li><a class="dropdown-item" href="LearnSensors.html">How Sensors Work</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item text-primary fw-semibold" href="./assets/AQLI-PDF.pdf" target="_blank">AQLI 2025 Report</a></li>
+                </ul>
+              </li>
+
+              <!--  Theme toggle icon (right-aligned on desktop) -->
+              <li class="nav-item ms-lg-3">
+                <div class="form-check form-switch mx-4">
+                  <input class="form-check-input p-2" type="checkbox" role="switch" id="themeToggle" checked />
+                </div>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container my-4">
+      <!-- Search Bar -->
+      <section id="search-section" class="text-center mb-4">
+        <h1 class="fw-bold mb-3">Amihan's Air Quality Tracker</h1>
+        <div class="input-group input-group-lg mx-auto" style="max-width: 500px;">
+          <input id="locationInput" type="text" class="form-control" placeholder="Enter city (e.g., Manila)">
+          <button id="searchBtn" class="btn btn-primary" type="button">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+      </section>
+
+      <!-- Air Quality Display -->
+      <section id="aq-display" class="text-center mb-5 section-bg py-4">
+        <div class="card shadow-sm border-0 mx-auto" style="max-width: 600px;">
+          <div class="card-body">
+            <h2 id="cityName" class="fw-bold mb-3">City Name</h2>
+            <p id="aqIndex" class="fs-1 fw-bold text-primary">--</p>
+            <div id="aqCircle" class="mx-auto mb-3"></div>
+            <p id="aqCategory" class="fs-5 text-secondary">Air Quality Category</p>
+            <p id="mainPollutant" class="fs-6 text-muted fw-bold">Main Pollutant: --</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weather Info -->
+      <section id="weather-data" class="text-center mb-5 section-bg py-4">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card text-center shadow-sm border-0">
+              <div class="card-body">
+                <h5 class="card-title">Temperature</h5>
+                <p class="card-text fs-4" id="temp-value">-- °C</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-center shadow-sm border-0">
+              <div class="card-body">
+                <h5 class="card-title">Humidity</h5>
+                <p class="card-text fs-4" id="humidity-value">--%</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card text-center shadow-sm border-0">
+              <div class="card-body">
+                <h5 class="card-title">Wind Speed</h5>
+                <p class="card-text fs-4" id="wind-value">-- m/s</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Map -->
+      <section id="map-section" class="mt-5">
+        <h2 class="text-center fw-bold mb-3">Air Quality Map</h2>
+        <div id="map" class="shadow-sm rounded" style="height: 400px; width: 100%;"></div>
+      </section>
+
+      <!-- AI Explanation -->
+      <section id="ai-explanation" class="mt-5">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-primary text-white">
+            Amihan's Insight 🌬️
+          </div>
+          <div class="card-body">
+            <p id="aiOutput" class="mb-0 text-secondary">
+              Enter a city to generate a detailed air quality explanation.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3 border-top">
+      <p class="small text-muted">Powered by <a href="https://www.iqair.com/" target="_blank">IQAir</a> • <a href="https://ai.google.dev/gemini-api/docs" target="_blank">Google Gemini</a></p>
+      <p class="small text-muted mb-0">© 2025 Amihan</p>
+    </footer>
+    
+  </div>
+</body>
+</html>

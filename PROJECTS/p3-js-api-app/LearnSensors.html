@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amihan | How Sensors Work</title>
+
+  <script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="MainStyles.css">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- LeafletJS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Main Script and Theme Script -->
+  <script src="Theme.js" defer></script>
+  <script src="MainScript.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.png">
+</head>
+
+<body data-bs-theme="light">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+      <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand d-flex align-items-center fw-bold text-primary fs-4" href="index.html">
+          <img src="assets/windsvg.svg" alt="Amihan Logo" width="28" height="28" class="me-2">
+          Amihan
+        </a>
+
+        <!-- Hamburger Toggle for small screens -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav align-items-lg-center gap-lg-3">
+            
+            <!-- Regular nav links -->
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold text-primary" href="index.html">Home</a>
+            </li>
+
+            <!-- About -->
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="About.html">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="Blog.html">Blog</a>
+            </li>
+
+            <!--  Dropdown  -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="learnDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn
+              </a>
+              <ul class="dropdown-menu border-0 shadow-sm mt-2" aria-labelledby="learnDropdown">
+                <li><a class="dropdown-item" href="LearnAQI.html">What is AQI?</a></li>
+                <li><a class="dropdown-item" href="LearnHealth.html">Health Impacts</a></li>
+                <li><a class="dropdown-item" href="LearnSensors.html">How Sensors Work</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-primary fw-semibold" href="./assets/AQLI-PDF.pdf" target="_blank">AQLI 2025 Report</a></li>
+              </ul>
+            </li>
+
+            <!--  Theme toggle icon (right-aligned on desktop) -->
+            <li class="nav-item ms-lg-3">
+              <div class="form-check form-switch mx-4">
+                <input class="form-check-input p-2" type="checkbox" role="switch" id="themeToggle" checked />
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="container my-5 text-justify">
+  <div class="card shadow-sm border-0 mx-auto" style="max-width: 900px;">
+    <img src="assets/Sensors.jpg" alt="Air Quality Sensor" class="card-img-top">
+    <div class="card-body">
+  <h1 class="fw-bold text-center mb-4">How Air Quality Sensors Work</h1>
+
+  <p>
+    Air quality sensors are compact devices designed to detect and measure various pollutants present in the air. 
+    These pollutants include gases, particulate matter, and volatile organic compounds (VOCs) that can affect human health and the environment. 
+    The sensors convert raw measurements into understandable metrics like the <strong>Air Quality Index (AQI)</strong>, which helps you easily interpret whether the air is clean, moderate, or hazardous.
+  </p>
+
+  <p>
+    Depending on their design, sensors use advanced technologies such as <strong>laser scattering</strong>, 
+    <strong>infrared absorption</strong>, or <strong>electrochemical sensing</strong> to identify specific pollutants in real time. 
+    Many modern sensors combine multiple detection techniques to provide a more complete and accurate snapshot of air quality.
+  </p>
+
+  <h3 class="fw-bold text-primary mt-5">💡 Common Sensor Types</h3>
+  <ul>
+    <li>
+      <strong>Optical (Laser) Sensors:</strong> These sensors shine a laser beam through an air sample and measure how particles scatter the light. 
+      From this scattering pattern, they estimate concentrations of particulate matter such as <strong>PM2.5</strong> and <strong>PM10</strong>, 
+      which are fine and coarse dust particles harmful to lungs.
+    </li>
+    <li>
+      <strong>Electrochemical Sensors:</strong> These are commonly used for detecting gases like <strong>NO₂</strong>, <strong>CO</strong>, 
+      and <strong>O₃</strong>. They work through chemical reactions inside the sensor that generate small electrical currents, 
+      which are directly related to the gas concentration.
+    </li>
+    <li>
+      <strong>NDIR (Non-Dispersive Infrared) Sensors:</strong> These sensors detect gases such as <strong>CO₂</strong> by shining infrared light through a sample of air 
+      and measuring how much light is absorbed. Different gases absorb light at specific wavelengths, allowing precise identification.
+    </li>
+  </ul>
+
+  <h3 class="fw-bold text-primary mt-5">📡 Data Transmission and Processing</h3>
+  <p>
+    Once the sensor collects pollutant data, it processes the readings through built-in microcontrollers and transmits them to the cloud via Wi-Fi, 
+    cellular, or LoRa connections. Platforms such as <strong>IQAir</strong> receive this data for calibration, filtering, and aggregation, 
+    ensuring more accurate and consistent results across devices and locations.
+  </p>
+
+  <p>
+    <strong>Amihan</strong> then fetches this processed data through APIs, turning raw sensor outputs into meaningful visuals such as 
+    live AQI charts, pollution maps, and health-based recommendations. This makes complex environmental data simple and accessible, 
+    helping users make informed decisions about outdoor activities or ventilation indoors.
+  </p>
+
+  <div class="alert alert-success mt-4">
+    <strong>Did you know?</strong> Modern air sensors can detect minute changes in air quality within seconds and automatically sync with 
+    <strong>smart home systems</strong>. This means your purifier or air conditioner can adjust settings the moment pollution levels rise.
+  </div>
+</div>
+    </div>
+  </div>
+</main>
+
+  <footer class="text-center py-3 border-top">
+    <p class="small text-muted">Powered by <a href="https://www.iqair.com/">IQAir</a> • <a href="https://ai.google.dev/gemini-api/docs">Google Gemini</a></p>
+    <p class="small text-muted mb-0">© 2025 Amihan</p>
+  </footer>
+
+  
+</body>
+</html>
