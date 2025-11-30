@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amihan | What is AQI?</title>
+
+  <script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="MainStyles.css">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- LeafletJS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Main Script and Theme Script -->
+  <script src="Theme.js" defer></script>
+  <script src="MainScript.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.png">
+</head>
+<body data-bs-theme="light">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+      <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand d-flex align-items-center fw-bold text-primary fs-4" href="index.html">
+          <img src="assets/windsvg.svg" alt="Amihan Logo" width="28" height="28" class="me-2">
+          Amihan
+        </a>
+
+        <!-- Hamburger Toggle for small screens -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav align-items-lg-center gap-lg-3">
+            
+            <!-- Regular nav links -->
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold text-primary" href="index.html">Home</a>
+            </li>
+
+            <!-- About -->
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="About.html">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link fw-semibold text-dark" href="Blog.html">Blog</a>
+            </li>
+
+            <!--  Dropdown  -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-semibold text-dark" href="#" id="learnDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn
+              </a>
+              <ul class="dropdown-menu border-0 shadow-sm mt-2" aria-labelledby="learnDropdown">
+                <li><a class="dropdown-item" href="LearnAQI.html">What is AQI?</a></li>
+                <li><a class="dropdown-item" href="LearnHealth.html">Health Impacts</a></li>
+                <li><a class="dropdown-item" href="LearnSensors.html">How Sensors Work</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-primary fw-semibold" href="./assets/AQLI-PDF.pdf" target="_blank">AQLI 2025 Report</a></li>
+              </ul>
+            </li>
+
+            <!--  Theme toggle icon (right-aligned on desktop) -->
+            <li class="nav-item ms-lg-3">
+              <div class="form-check form-switch mx-4">
+                <input class="form-check-input p-2" type="checkbox" role="switch" id="themeToggle" checked />
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+  <h1 class="fw-bold text-center mb-4">🌬️ What is the Air Quality Index (AQI)?</h1>
+
+  <p class="fs-5 text-justify">
+    The <strong>Air Quality Index (AQI)</strong> is a standardized scale that measures how clean or polluted the air is in a particular location.
+    It translates complex scientific data from air sensors into a simple number between <strong>0 and 500</strong>.
+    The lower the number, the cleaner the air — the higher the number, the greater the level of pollution and potential health risks.
+  </p>
+
+  <p class="fs-5 text-justify">
+    The AQI focuses on several key pollutants that significantly affect our health:
+    <strong>PM2.5</strong> (fine particles), <strong>PM10</strong> (coarse particles), <strong>O₃</strong> (ozone),
+    <strong>NO₂</strong> (nitrogen dioxide), <strong>SO₂</strong> (sulfur dioxide), and <strong>CO</strong> (carbon monoxide).
+    These pollutants can come from vehicles, factories, wildfires, and even household activities.
+  </p>
+
+  <p class="fs-5 text-justify">
+    Governments and organizations around the world use AQI data to inform people when air pollution levels become unsafe.
+    A high AQI can trigger public health alerts, school advisories, or encourage citizens to stay indoors.
+    Understanding AQI helps us make smarter, safer decisions for our families and communities.
+  </p>
+
+  <h3 class="fw-bold text-primary mt-5 mb-4 text-center">AQI Color Categories Explained</h3>
+
+  <div class="row gy-4 justify-content-center text-center">
+
+    <!-- Good -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-good"></div>
+      <h5 class="fw-bold">Good (0–50)</h5>
+      <p class="text-muted">
+        Air quality is excellent. Outdoor activities are safe for everyone.
+        The air poses little or no risk to health.
+      </p>
+    </div>
+
+    <!-- Moderate -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-moderate"></div>
+      <h5 class="fw-bold">Moderate (51–100)</h5>
+      <p class="text-muted">
+        Air is generally acceptable, but some pollutants may slightly affect
+        very sensitive individuals such as children or the elderly.
+      </p>
+    </div>
+
+    <!-- Unhealthy for Sensitive Groups -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-unhealthy-sens"></div>
+      <h5 class="fw-bold">Unhealthy for Sensitive Groups (101–150)</h5>
+      <p class="text-muted">
+        People with respiratory or heart conditions may experience mild effects.
+        It's best to reduce prolonged outdoor exertion.
+      </p>
+    </div>
+
+    <!-- Unhealthy -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-unhealthy"></div>
+      <h5 class="fw-bold text-danger">Unhealthy (151–200)</h5>
+      <p class="text-muted">
+        Everyone may begin to feel adverse effects. Sensitive groups may
+        experience more serious symptoms like coughing or shortness of breath.
+      </p>
+    </div>
+
+    <!-- Very Unhealthy -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-very-unhealthy""></div>
+      <h5 class="fw-bold text-purple">Very Unhealthy (201–300)</h5>
+      <p class="text-muted">
+        Health alerts are issued. The risk of respiratory problems increases
+        significantly, especially for children and those with lung disease.
+      </p>
+    </div>
+
+    <!-- Hazardous -->
+    <div class="col-md-4 col-lg-3">
+      <div class="aqi-circle mx-auto mb-2 aqi-hazardous""></div>
+      <h5 class="fw-bold text-danger">Hazardous (301–500)</h5>
+      <p class="text-muted">
+        Emergency conditions. Everyone is likely to be affected.
+        Avoid outdoor exposure and follow official health warnings immediately.
+      </p>
+    </div>
+
+  </div>
+
+  <p class="mt-5 fst-italic text-center text-muted">
+    The AQI system empowers individuals to take action — choosing safer times for outdoor exercise,
+    protecting children and the elderly, and raising awareness about the importance of clean air.
+    Understanding these colors means understanding how the air around us impacts our health every day.
+  </p>
+</main>
+
+  <footer class="text-center py-3 border-top">
+    <p class="small text-muted">Powered by <a href="https://www.iqair.com/" target="_blank">IQAir</a> • <a href="https://ai.google.dev/gemini-api/docs" target="_blank">Google Gemini</a></p>
+    <p class="small text-muted mb-0">© 2025 Amihan</p>
+  </footer>
+
+
+</body>
+</html>

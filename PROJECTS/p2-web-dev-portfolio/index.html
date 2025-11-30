@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>russellfrrr | all about web.</title>
+  <link rel="stylesheet" href="MainStyles.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="MainScript.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- bg animation -->
+  <div class="bg-gradient"></div>
+
+  <!-- intro screen -->
+  <section id="intro" class="intro">
+    <div class="intro-content">
+      <img src="images/logo.svg" alt="My Logo" class="logo-svg" />
+      <h1 class="brand-name">russellfrrr</h1>
+      <p class="slogan">all about web.</p>
+    </div>
+  </section>
+
+  <!-- navbar -->
+  <div id="site-content">
+    <header id="navbar" class="navbar">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="images/logo.svg" alt="My Logo" class="logo-svg small" id="navbar-logo" />
+        </a>
+          <div class="brand-info">
+          <h1 class="nav-brand">russellfrrr</h1>
+          <p class="nav-slogan">all about web.</p>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <ul id="menu-items" class="menu-items">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+        </ul>
+        <button id="menu-toggle" class="menu-toggle" type="button">☰</button>
+      </div>
+    </header>
+
+    <!-- hero section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-name">Russell Ferrero</h1>
+        <p class="hero-caption">a web developer.</p>
+      </div>
+    </section>
+
+    <!-- about section -->
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>About</h2>
+        <p>
+          I'm Russell, an aspiring <strong>full-stack web developer</strong> currently focused on mastering
+          the <strong>MERN stack</strong>. I believe technology isn't just about code - it's about creating 
+          solutions that can make life better for people. My goal is to grow into a developer who builds applications
+          that are not only functional and modern, but also meaningful and impactful to society.
+        </p>
+        <br>
+
+        <p>
+          When I’m not coding, you’ll probably find me grinding in <strong>Valorant</strong> or <strong>Dota 2</strong> (because debugging is easier than climbing ranked, trust me). 
+          I’m also a fan of good <strong>whiskey</strong> and <strong>vodka</strong>, and a huge <strong>One Piece</strong> follower – still waiting for Luffy to finally find that treasure, just like 
+          I’m chasing mine in <strong>Full-stack web development</strong>.
+        </p>
+        <br>
+        <br>
+        <a href="files/Resume.pdf" download class="resume-btn">
+          Resume
+        </a>
+      </div>
+    </section>
+    
+    <!-- skills section -->
+    <section id="skills" class="skills">
+      <div class="skills-container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                <img src="images/html5.svg" alt="HTML5">
+              </a>
+              <p>HTML5</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+              <img src="images/css3.svg" alt="CSS3">
+            </a>
+            <p>CSS3</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+              <img src="images/js.svg" alt="JavaScript">
+            </a>
+            <p>JavaScript</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://www.mongodb.com/docs/manual/" target="_blank">
+              <img src="images/mongodb.svg" alt="MongoDB">
+            </a>
+            <p>MongoDB</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://expressjs.com/" target="_blank">
+              <img src="images/expressjs.svg" alt="ExpressJS">
+            </a>
+            <p>ExpressJS</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://react.dev/" target="_blank">
+              <img src="images/react.svg" alt="React">
+            </a>
+            <p>React</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://nodejs.org/docs/latest/api/" target="_blank">
+              <img src="images/nodejs.svg" alt="NodeJS">
+            </a>
+            <p>NodeJS</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://git-scm.com/doc" target="_blank">
+              <img src="images/git.svg" alt="Git">
+            </a>
+            <p>Git</p>
+          </div>
+
+          <div class="skill">
+            <a href="https://isocpp.org/" target="_blank">
+              <img src="images/c++.svg" alt="C++">
+            </a>
+            <p>C++</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- projects section  -->
+    <section id="projects" class="projects">
+      <div class="proj-content">
+        <h2>Projects</h2>
+
+
+        <div class="projects-grid">
+
+          <div class="projects-card">
+            <div class="project-img">
+              <img src="images/passports.jpg" alt="Passport Management System preview">
+            </div>
+
+
+            <div class="project-body">
+              <h3>Passports Management System</h3>
+              <p>The Passport Management System is a command-line application designed to manage digital passport profiles efficiently. Built entirely in JavaScript using Node.js, 
+                it provides a user-friendly, text-based interface for performing essential CRUD operations (Create, Read, Update, Delete) on passport records.</p>
+
+          
+              <div class="tech-stack">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                  <img src="images/js.svg" alt="JavaScript">
+                </a>
+
+                <a href="https://nodejs.org/docs/latest/api/" target="_blank">
+                  <img src="images/nodejs.svg" alt="NodeJS">
+                </a>
+              </div>
+
+          
+              <div class="project-links">
+                <a href="https://github.com/users/russellfrrr/projects/1/views/1" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+
+      
+          <div class="projects-card">
+            <div class="project-img">
+              <img src="images/valorant.jpg" alt="Valorant Library preview">
+            </div>
+
+            <div class="project-body">
+              <h3>Valorant Library</h3>
+              <p>The Valorant Library is an interactive web application that serves as a comprehensive database for everything in the Valorant universe. 
+                Whether you’re a casual player or a competitive agent, this app provides detailed insights into agents, maps, weapons, and agent abilities — 
+                all in one place.
+              </p>
+
+              <div class="tech-stack">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                  <img src="images/html5.svg" alt="HTML5">
+                </a>
+
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                  <img src="images/css3.svg" alt="CSS3">
+                </a>
+
+                <a href="https://www.mongodb.com/docs/manual/" target="_blank">
+                  <img src="images/mongodb.svg" alt="MongoDB">
+                </a>
+
+                <a href="https://expressjs.com/" target="_blank">
+                  <img src="images/expressjs.svg" alt="ExpressJS">
+                </a>
+
+                <a href="https://react.dev/" target="_blank">
+                  <img src="images/react.svg" alt="React">
+                </a>
+
+                <a href="https://nodejs.org/docs/latest/api/" target="_blank">
+                  <img src="images/nodejs.svg" alt="NodeJS">
+                </a>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/users/russellfrrr/projects/2/views/1" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+
+      
+          <div class="projects-card">
+            <div class="project-img">
+              <img src="images/expenses.jpeg" alt="Expenses Tracker preview">
+            </div>
+
+            <div class="project-body">
+              <h3>Expenses Tracker App</h3>
+              <p>The Expenses Tracker App is a full-stack budgeting tool designed to help users manage and visualize their spending habits. It provides an intuitive 
+                interface for tracking daily expenses, categorizing transactions, and analyzing financial trends over time. Users can add, edit, and delete transactions, and 
+                the app automatically calculates total income, expenses, and balance — giving a clear picture of financial health.
+              </p>
+
+              <div class="tech-stack">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                  <img src="images/html5.svg" alt="HTML5">
+                </a>
+
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                  <img src="images/css3.svg" alt="CSS3">
+                </a>
+
+                <a href="https://www.mongodb.com/docs/manual/" target="_blank">
+                  <img src="images/mongodb.svg" alt="MongoDB">
+                </a>
+
+                <a href="https://expressjs.com/" target="_blank">
+                  <img src="images/expressjs.svg" alt="ExpressJS">
+                </a>
+
+                <a href="https://react.dev/" target="_blank">
+                  <img src="images/react.svg" alt="React">
+                </a>
+
+                <a href="https://nodejs.org/docs/latest/api/" target="_blank">
+                  <img src="images/nodejs.svg" alt="NodeJS">
+                </a>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/users/russellfrrr/projects/3/views/1" target="_blank">View on GitHub</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact section  -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      
+      <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Name" required>
+        <input type="email" name="from_email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-links">
+        <p>Visit my links:</p>
+        <div class="icons">
+          <a href="https://github.com/russellfrrr" target="_blank">
+            <img src="images/github.svg" alt="GitHub">
+          </a>
+
+          <a href="https://gitlab.com/russellfrrr" target="_blank">
+            <img src="images/gitlab.svg" alt="GitLab">
+          </a>
+
+          <a href="https://www.linkedin.com/in/russellfrrr" target="_blank">
+            <img src="images/linkedin.svg" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- copyright footer  -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <span>&copy; 2025 - Russell Ferrero</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+
